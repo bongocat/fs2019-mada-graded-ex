@@ -11,9 +11,11 @@ public class main {
 		BigInteger q = BigInteger.probablePrime(bitLength, new Random());
 		BigInteger n;
 		
+		BigInteger phi = (p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE)));
+		
 		if (!p.equals(q) && p.isProbablePrime(bitLength) && q.isProbablePrime(bitLength)) {
 			n = p.multiply(q);
-			System.out.println("p: " + p + "; q: " + q + "; n: " +n);
+			System.out.println("p: " + p + "; q: " + q + "; n: " +n + "; phi: " + phi);
 			
 			
 			// TODO Create Eulers totient function
