@@ -62,6 +62,11 @@ public class main {
 
 				// create d via extended euclidian algorythm
 				d = eea(n, e);
+				
+				if (d.signum() == -1) {
+					throw new ArithmeticException("Only positive d supported atm");
+		        }
+					
 				System.out.println("chosen d: " + d);
 				System.out.println();
 
@@ -122,6 +127,8 @@ public class main {
 			System.out.println("a: " + a + " b: " + b + " x0: " + x0 + " y0: " + y0 + " x1: " + x1 + " y1: " + y1
 					+ " q: " + q + " r: " + r);
 
+			
+			
 		}
 		return y0;
 	}
