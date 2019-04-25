@@ -25,12 +25,14 @@ public class main {
 			n = p.multiply(q);
 			phi = (p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE)));
 			System.out.println("p: " + p + "; q: " + q + "; n: " +n + "; phi: " + phi);
+			System.out.println();
 			
 			// choose random e with gdc(n,e) = 1
+			System.out.println("create e");
 			while (!e.gcd(phi.subtract(BigInteger.ONE)).equals(BigInteger.ONE) && !e.equals(p) && !e.equals(q)) {
 			    e = BigInteger.probablePrime(bitLength, new Random());
-				System.out.println("try for e: " + e);
-				System.out.println("gdc(" + e + "," + phi.subtract(BigInteger.ONE) + ") = " + e.gcd(p));
+				System.out.println("> try e: " + e);
+				System.out.println("> gdc(" + e + "," + phi.subtract(BigInteger.ONE) + ") = " + e.gcd(p));
 			}
 			System.out.println("chosen e: " + e); 
 			System.out.println();
