@@ -1,6 +1,10 @@
 package mada_graded_ex;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.math.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 public class main {
 
@@ -44,6 +48,31 @@ public class main {
 			
 			System.out.println("Public  Key (n,e) = ("+n+","+e+")");
 			System.out.println("Private Key (n,d) = ("+n+","+d+")");
+			System.out.println();
+			
+			// create storage file for the public key
+			System.out.println("create public key storage file");
+			try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream("pk.txt"), StandardCharsets.UTF_8))) {
+                writer.write("(" + n + "," + e + ")");
+            } catch (java.io.IOException exception) {
+                exception.printStackTrace();
+                return;
+            }
+            
+            // create storage file for the private key
+			System.out.println("create private/secret key storage file");
+            try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+            		new FileOutputStream("sk.txt"), StandardCharsets.UTF_8))) {
+                writer.write("(" + n + "," + d + ")");
+            } catch (java.io.IOException exception) {
+                exception.printStackTrace();
+                return;
+            }
+
+          
+
+
 						
 		}
 		else {
@@ -78,7 +107,6 @@ public class main {
 			System.out.println("a: " + a +" b: " + b + " x0: " + x0  + " y0: " + y0  + " x1: " + x1  + " y1: " + y1  + " q: " + q  + " r: " + r);	
 			
 		}
-		
 		return y0;  
 	}
 }
